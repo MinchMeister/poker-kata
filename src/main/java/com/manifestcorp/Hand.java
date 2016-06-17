@@ -14,7 +14,7 @@ public class Hand {
 	private List<Card> cardHand;
 	private HandRanker handRanker;
 	private int handRank;
-	private String handRankTitle = "durp";
+	private String handRankTitle = "durp";//why is this durp?
 	
 	public Hand() {
 		cardHand = new ArrayList<Card>();
