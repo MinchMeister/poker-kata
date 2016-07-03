@@ -4,8 +4,11 @@ import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class Hand {
 	//TODO hashMap of str/int handRank
@@ -25,7 +28,21 @@ public class Hand {
 		Map<Integer, Long> valueMap = cardHand.stream().collect(groupingBy(Card::getValue, counting()));
 		Map<Character, Long> suitMap = cardHand.stream().collect(groupingBy(Card::getSuit, counting()));
 		System.out.println(valueMap);
-		//SortedMap<Integer, Long> sortedValueMap = (SortedMap<Integer, Long>) valueMap;
+		
+		/**
+		SortedMap<Integer, Long> sortedValueMap = new SortedMap<Integer, Long>(
+				new Comparator<Integer>() {
+					@Override
+					public int compare(Integer a, Integer b) {
+						return a.compareTo(b);
+					}
+				});
+		
+		sortedValueMap.putAll(valueMap);
+		
+		System.out.println(sortedValueMap);
+		//System.out.println(sortedValueMap);
+		*/
 		handRank = handRanker.findRank(valueMap, suitMap);
 	}
 

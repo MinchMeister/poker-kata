@@ -5,7 +5,13 @@ import java.util.Map;
 public class HandRanker {
 	
 	public int findRank(Map<Integer, Long> valueMap, Map<Character, Long> suitMap) {
-		return 1;
+		if(valueMap.size() < 5) {
+			
+		}
+		
+		if(valueMap.size() == 5) {
+		}
+		return 0;
 	}
 
 	public boolean checkForPair(Map<Integer, Long> valueMap) {
